@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>框架集与框架</title>
+	</head>
+	<frameset rows="100,*,50" frameborder="0" bordercolor="blue">
+		<frame src="top.html" />
+		<frameset cols="200,*">
+			<frame src="left.html" noresize="noresize" />
+			<frame id="mainFrame" name="mainFrame" src="main.html" />
+		</frameset>
+		<frame src="bottom.html" />
+	</frameset>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,563 @@
+一、常用API类
+
+    1、String
+
+       字符串——字符的序列。
+
+       String被定义为final，是最终类。
+
+       String类储存值得value数组也定义为final，是最终变量，值不允许修改，所以字符串相加，会产生一个新的字符串对象。
+
+       1）String赋初值null与""的区别？
+
+          null: 栈中不存在值;
+
+          "": 栈存在值，指向常量池中""(空字符串)对象。
+
+       2）定义字符串：
+
+          String str = "字符串常量";
+
+          String str = new String("字符串常量");
+
+          String str = new String(字符型数组);
+
+          字符串常量存在于常量池中。
+
+          使用new关键字创建的字符串对象存于堆中。
+
+          String引用型的变量的值是常量池中或堆中字符串对象的地址。
+
+       3）String类的常用方法：
+
+          length()  //返回此字符串的长度。
+
+          charAt(int index)  //返回指定索引处的 char 值。
+
+          concat(String str) //将指定字符串连接到此字符串的结尾。
+
+          indexOf(String str) //返回指定子字符串在此字符串中第一次出现处的索引。
+
+          indexOf(String str, int fromIndex)  //返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始。
+
+          lastIndexOf(String str) //返回指定字符在此字符串中最后一次出现处的索引。
+
+          int lastIndexOf(String str, int fromIndex) 
+          //返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。 
+
+          replace(char oldChar, char newChar) 
+          //返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。
+
+          replace(CharSequence target, CharSequence replacement) 
+          //使用指定的字面值替换序列替换此字符串所有匹配字面值目标序列的子字符串。
+
+          replaceAll(String regex, String replacement) 
+          //使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
+
+          replaceFirst(String regex, String replacement) 
+          //使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+
+          substring(int beginIndex) 
+          //返回一个新的字符串，它是此字符串的一个子字符串。
+
+          substring(int beginIndex, int endIndex) 
+          //返回一个新字符串，它是此字符串的一个子字符串。
+            beginIndex - 起始索引（包括）。
+            endIndex - 结束索引（不包括）。 
+
+          public String[] split(String regex)  //根据给定正则表达式的匹配拆分此字符串。
+
+          trim()  //返回字符串的副本，忽略前导空白和尾部空白。 
+
+
+
+          equals(Object anObject)  //将此字符串与指定的对象比较。
+
+          equalsIgnoreCase(String anotherString)  //将此 String 与另一个 String 比较，不考虑大小写。
+
+          startsWith(String prefix)  //测试此字符串是否以指定的前缀开始。
+
+          endsWith(String suffix)  //测试此字符串是否以指定的后缀结束。
+
+          contains(CharSequence s) //当且仅当此字符串包含指定的 char 值序列时，返回 true。
+
+
+          toLowerCase()  //使用默认语言环境的规则将此 String 中的所有字符都转换为小写。
+
+          toUpperCase()  //使用默认语言环境的规则将此 String 中的所有字符都转换为大写。
+
+          toCharArray()  //将此字符串转换为一个新的字符数组。
+
+          getBytes() 
+          //使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte 数组中。
+
+
+    2、StringBuffer与StringBuilder
+
+       可变字符串
+
+       1）StringBuffer：
+
+          线程安全的可变字符序列。一个类似于 String 的字符串缓冲区。
+
+          内容与长度可变的，通过方法改变其内容与长度。
+
+       2）StringBuilder：
+
+          一个可变的字符序列。此类提供一个与 StringBuffer 兼容的 API，但不保证同步，即线程不安全。
+
+          单线程时，使用StringBuilder效率更快。
+
+
+       3）常用方法：
+
+          append(String str)  //将指定的字符串追加到此字符序列。
+
+          length()  //返回长度（字符数）。
+
+          toString() //返回此序列中数据的字符串表示形式。       
+
+
+    3、Wrapper
+
+       八大封装类
+
+       对应八个基本数据类型的封装类。
+
+       Byte           byte
+
+       Short          short
+
+       Integer        int
+
+       Long           long
+
+       Float          float
+
+       Double         double
+
+       Character      char
+
+       Boolean        boolean
+
+
+       1）jdk1.5+版本，基本数据类型与它的封装类，可以自动相互转换，不需要强制。
+
+           Integer it = 200;                     //jdk1.4-    Integer it = new Integer(200);
+
+           int i = it;                           //jdk1.4-    int i = it.intValue();
+
+
+       2）使用封装类, 将基本数据与字符串进行类型转换
+
+           比如：int与String进行类型转换
+
+                 String 转换成 int型
+
+                      String str = "123";
+
+                      int i = Integer.parseInt(str);  //常用
+
+                       
+                      Integer it = Integer.valueOf(str);
+         
+                      int i = it;
+
+                 int 转换成 String型
+
+                      int i = 123;
+
+                      Integer it = i;
+
+                      String str = it.toString();
+
+
+
+                      //使用String类的方法
+                      String str = String.valueOf(i);  //常用
+
+          
+        3）数字转换成不同进制的字符串
+
+           toBinaryString(int i) 
+               //以二进制（基数 2）无符号整数形式返回一个整数参数的字符串表示形式。
+
+           toOctalString(int i) 
+               //以八进制（基数 8）无符号整数形式返回一个整数参数的字符串表示形式。
+
+           toHexString(int i) 
+               //以十六进制（基数 16）无符号整数形式返回一个整数参数的字符串表示形式。
+
+           toString() 
+               //返回一个表示该 Integer 值的 String 对象。
+
+                       
+
+    4、Math
+
+       数学函数类
+
+       Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。
+
+       1、常用方法：
+
+          random()  //返回带正号的 double 值，该值大于等于 0.0 且小于 1.0。
+
+          round(double a)  //返回最接近参数的 long。
+
+          pow(double a, double b)  //返回第一个参数的第二个参数次幂的值。
+      
+
+    5、Date
+
+       日期类
+
+       1）Java中存在两个Date类
+
+          Java.util.Date
+
+              创建时间对象：  
+
+                  new Date();  //创建当前时间的对象
+
+                  new Date(long date);  //创建指定时间的对象, date是距1970年1月1日 00:00:00 GMT的毫秒数
+
+          Java.sql.Date
+
+              创建时间对象：
+
+                  Date(long date);  //使用给定毫秒时间值构造一个 Date 对象。
+
+
+        2）常用方法
+
+           after(Date when) 
+               //测试此日期是否在指定日期之后。
+
+           before(Date when) 
+               //测试此日期是否在指定日期之前。
+
+           equals(Object obj) 
+               //比较两个日期的相等性。
+
+           setTime(long time) 
+               //设置此 Date 对象，以表示 1970 年 1 月 1 日 00:00:00 GMT 以后 time 毫秒的时间点。
+
+           getTime() 
+               //返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。
+  
+
+    6、Timestamp
+
+       时间戳
+
+       精确到毫秒
+
+       使用JDBC操作数据库，常用该类型来操作时间。
+
+       1）常用方法
+          
+           after(Date when) 
+               //测试此日期是否在指定日期之后。
+
+           before(Date when) 
+               //测试此日期是否在指定日期之前。
+
+           equals(Object obj) 
+               //比较两个日期的相等性。
+
+           setTime(long time) 
+               //设置此 Date 对象，以表示 1970 年 1 月 1 日 00:00:00 GMT 以后 time 毫秒的时间点。
+
+           getTime() 
+               //返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。
+
+
+    7、Calendar
+
+       日历类，抽象类
+
+       1）创建日历对象
+
+          getInstance()  //使用默认时区和语言环境获得一个日历。
+
+
+       2) 常用方法
+
+          void roll(int field, boolean up) 
+              //在给定的时间字段上添加或减去（上/下）单个时间单元，不更改更大的字段。
+ 
+          void roll(int field, int amount) 
+              //向指定日历字段添加指定（有符号的）时间量，不更改更大的字段。 
+
+          void set(int field, int value) 
+              //将给定的日历字段设置为给定值。 
+
+          void set(int year, int month, int date) 
+              //设置日历字段 YEAR、MONTH 和 DAY_OF_MONTH 的值。 
+
+          void set(int year, int month, int date, int hourOfDay, int minute) 
+              //设置日历字段 YEAR、MONTH、DAY_OF_MONTH、HOUR_OF_DAY 和 MINUTE 的值。
+ 
+          void set(int year, int month, int date, int hourOfDay, int minute, int second) 
+              //设置字段 YEAR、MONTH、DAY_OF_MONTH、HOUR、MINUTE 和 SECOND 的值。 
+
+
+          Date getTime() 
+              //返回一个表示此 Calendar 时间值（从历元至现在的毫秒偏移量）的 Date 对象。 
+
+          long getTimeInMillis() 
+              //返回此 Calendar 的时间值，以毫秒为单位。 
+
+          void setTime(Date date) 
+              //使用给定的 Date 设置此 Calendar 的时间。 
+
+          void setTimeInMillis(long millis) 
+              //用给定的 long 值设置此 Calendar 的当前时间值。 
+
+
+
+    8、DateFormat
+
+       时间格式化类，抽象类
+
+       1）设置时间格式
+
+          子类SimpleDateFormat的构造方法，设置格式；
+
+          子类SimpleDateFormat的applyPattern(String pattern)方法，将给定模式字符串应用于此日期格式。
+
+
+       2）时间格式化成字符串（时间型 转换成 字符串型）
+
+          String format(Date date)  //将一个 Date 格式化为日期/时间字符串。 
+
+
+       3）字符串格式化成时间（字符串型 转换成 时间型）
+
+          Date parse(String source)  //从给定字符串的开始解析文本，以生成一个日期。 
+
+
+    9、Class
+
+       Class类的实例表示正在运行的 Java 应用程序中的类和接口。
+
+       一个类在加载时，就会创建一个Class类型的对象，该对象封装的是类的类名、属性、方法、构造方法....。
+
+       Class 没有公共构造方法（私有的）。Class对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的 defineClass 
+       方法自动构造的。
+
+       1）获得Class类信息对象
+
+          class.forName(String className);   //className是所需类的完全限定名
+
+          通过对象的getClass()方法获得对象的Class类信息对象。
+
+       2）常用方法
+
+          Package getPackage()  //获取此类的包。 
+
+          String getName() 
+              //以 String 的形式返回此 Class 对象所表示的实体（类、接口、数组类、基本类型或 void）名称。 
+
+          Constructor<T> getConstructor(Class<?>... parameterTypes) 
+              //返回一个 Constructor 对象，它反映此 Class 对象所表示的类的指定公共构造方法。 
+
+          Constructor<?>[] getConstructors() 
+              //返回一个包含某些 Constructor 对象的数组，这些对象反映此 Class 对象所表示的类的所有公共构造方法。 
+
+          Field getField(String name) 
+              //返回一个 Field 对象，它反映此 Class 对象所表示的类或接口的指定公共成员字段。
+ 
+          Field[] getFields() 
+              //返回一个包含某些 Field 对象的数组，这些对象反映此 Class 对象所表示的类或接口的所有可访问公共字段。
+
+          Method getMethod(String name, Class<?>... parameterTypes) 
+              //返回一个 Method 对象，它反映此 Class 对象所表示的类或接口的指定公共成员方法。 
+
+          Method[] getMethods() 
+              //返回一个包含某些 Method 对象的数组，这些对象反映此 Class 对象所表示的类或接口
+              //（包括那些由该类或接口声明的以及从超类和超接口继承的那些的类或接口）的公共 member 方法。 
+
+ 
+          //获得所有的属性、方法、构造方法，忽略访问权限
+          Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes) 
+              //返回一个 Constructor 对象，该对象反映此 Class 对象所表示的类或接口的指定构造方法。 
+
+          Constructor<?>[] getDeclaredConstructors() 
+              //返回 Constructor 对象的一个数组，这些对象反映此 Class 对象表示的类声明的所有构造方法。 
+
+          Field getDeclaredField(String name) 
+              //返回一个 Field 对象，该对象反映此 Class 对象所表示的类或接口的指定已声明字段。
+ 
+          Field[] getDeclaredFields() 
+              //返回 Field 对象的一个数组，这些对象反映此 Class 对象所表示的类或接口所声明的所有字段。 
+
+          Method getDeclaredMethod(String name, Class<?>... parameterTypes) 
+              //返回一个 Method 对象，该对象反映此 Class 对象所表示的类或接口的指定已声明方法。 
+
+          Method[] getDeclaredMethods() 
+              //返回 Method 对象的一个数组，这些对象反映此 Class 对象表示的类或接口声明的所有方法，
+              //包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。 
+
+
+          T newInstance() 
+              //创建此 Class 对象所表示的类的一个新实例。 
+
+
+       3）Java的反射机制
+
+          JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用
+          它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。
+
+          使用反射机制的好处：
+
+              运行时，确定要创建的对象，以及要访问的属性与方法。
+
+          a）获得类的构造器、属性、方法
+
+          b）创建对象
+
+             newInstance();
+
+          c）通过构造器、属性、方法初始化对象
+
+
+    10、Properties
+
+
+    11、Runtime
+
+        每个 Java 应用程序都有一个 Runtime 类实例，使应用程序能够与其运行的环境相连接。
+
+        不能直接创建Runtime对象，通过getRuntime()方法返回与当前 Java 应用程序相关的运行时对象。
+
+
+        1）常用方法
+
+           Process exec(String command) 
+               //在单独的进程中执行指定的字符串命令。 
+
+
+
+
+修饰符：
+
+    类的修饰符
+
+        public
+
+        final
+
+        abstract
+
+
+    类成员的修饰符
+
+        public
+
+        protedcted
+
+        private
+
+        static
+
+        final
+
+        abstract
+
+
+
+
+
+
+练习：
+
+   1、创建获得时间格式化的工具类
+
+      定义三个方法：
+
+         设置时间格式；
+
+         字符串格式化成时间型；
+
+         时间型格式化成字符串。
+
+      提示：使用DataFormat或其子类
+
+
+   2、定义方法，根据类名创建对象。
+
+
+作业：
+
+
+   1、定义类，定义三个方法，分别通过构造器、属性、方法创建以及初始化对象。
+
+         要求：类中定义的三个方法是通用的，即可以创建并初始化任意类的对象。
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

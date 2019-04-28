@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+		<script>
+			//动态初始化数组
+			var arr = new Array("Tom", "Lily", "Jack", "Rose", "Jhon");
+			/*//直接输出数组
+			document.write(arr);
+			document.write("<hr>");
+			//尾部添加元素
+			arr[arr.length] = "Davin";
+			document.write(arr);
+			document.write("<hr>");
+			//指定位置插入元素
+			arr.splice(2, 0, "小明", "小花");
+			document.write(arr);
+			document.write("<hr>");
+			//删除元素
+			arr.splice(2, 2);
+			document.write(arr);
+			document.write("<hr>");
+			//修改元素
+			arr.splice(2, 2, "杰克", "露丝");
+			document.write(arr);
+			document.write("<hr>");*/
+			//给数组下标不是数字，是否可以添加元素
+			/*arr[-1] = -10;
+			document.write(arr);
+			document.write(arr[-1]);
+			document.write("<hr>");*/
+			arr["name"] = "联想笔记本";
+			arr["total"] = 300;
+			arr["price"] = "4500";
+			document.write(arr);
+			document.write("<br/>");
+			for(i=0; i<arr.length; i++) {
+				document.write(arr[i]);
+				document.write("&emsp;");
+			}
+			document.write("<br/>");
+			for(i in arr) {
+				document.write(arr[i]);
+				document.write("&emsp;");
+			}
+			document.write("<br/>");
+			document.write("商品名称: "+arr["name"]);
+			document.write("<br/>");
+			document.write("商品名称: "+arr.name);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

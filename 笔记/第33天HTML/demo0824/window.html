@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器对象：Window</title>
+		<script>
+			//弹出警告框
+			//window.alert("中软国际!");
+			//alert("中国软件!");
+			/*if(confirm("你是否喜欢中国文化!")) {
+				alert("我爱中国!");
+			}*/
+			
+			function openWindow() {
+				//获得屏幕宽度
+				var width = screen.availWidth;
+				window.open("windowsub.html","subFrame",
+				    "width=380,height=500,top=100,left="+(width-380)/2);
+			}
+		</script>
+	</head>
+	<body>
+		<p>BOM: 浏览器对象模型!</p>
+		<p><input type="button" value="弹出警告框" onclick="alert('中国软件!')" /></p>
+		<p><input type="button" value="弹出选择对话框" 
+			onclick="if(confirm('你是否喜欢中国文化!')){alert('我爱中国!');}" /></p>
+		<p><input type="button" value="打开子窗口" onclick="openWindow()" /></p>
+		<p id="loginMsg">&nbsp;</p>
+		<p><a href="http://www.baidu.com" target="subFrame">百度</a></p>
+	</body>
+</html>

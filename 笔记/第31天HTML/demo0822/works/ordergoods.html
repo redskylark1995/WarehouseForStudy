@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript对象</title>
+		<script>
+			/**
+			 * 商品的构造函数
+			 * @param {Object} name
+			 * @param {Object} total
+			 * @param {Object} price
+			 */
+			function Goods(name, total, price) {
+				this.name = name;
+				this.total = total;
+				this.price = price;
+				
+				this.toString = function() {
+					return this.name+"&emsp;&emsp;&emsp;"
+					    +this.price+"&emsp;&emsp;&emsp;"+this.total;
+				}
+			}
+			
+			/**
+			 * 订单的构造函数
+			 * @param {Object} goodsArray
+			 */
+			function Order(goodsArray) {
+				this.goodsArray = goodsArray;
+				
+				this.printInfo = function() {
+					for(i in this.goodsArray) {
+						var goods = this.goodsArray[i];
+						document.write(goods.toString());
+						document.write("<br/>")
+					}
+				}
+				
+				this.getTotalMoney = function() {
+					var totalMoney = 0;
+					for(i in this.goodsArray) {
+						var goods = this.goodsArray[i];
+						totalMoney += goods.price*goods.total;
+					}
+					return totalMoney;
+				}
+			}
+			
+			//创建数组，封装商品对象
+			var arr = [new Goods("联想笔记本",100,4500),
+			      new Goods("华为手机",200,2600),
+			      new Goods("辣条",1000,2.5)];
+			//创建订单对象
+			var order = new Order(arr);
+			//调用对象函数
+			order.printInfo();
+			//计算商品总额
+			document.write(order.getTotalMoney());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

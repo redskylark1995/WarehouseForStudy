@@ -1,0 +1,618 @@
+一、JavaScript
+
+    1、什么是Javascript?
+
+        JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。
+
+        它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言。
+
+        最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+
+
+        JavaScript是一种解释性、以及弱类型的语言，在浏览器上解释执行；在HTML网页上使用，给网页添加动态功能。
+
+            解释性语言：不需要编译，由浏览器直接解释执行。
+
+            弱类型语言：声明变量时，无需指定变量类型，变量类型由值来确定。
+
+
+    2、JavaScript语言的组成：
+
+       ECMAScript，描述了该语言的语法和基本对象。
+
+       文档对象模型（DOM），描述处理网页内容的方法和接口。
+
+       浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口。
+
+
+二、数据类型
+
+    http://www.w3school.com.cn/js/js_datatypes.asp
+
+    1、数值型
+
+    2、字符型
+
+    3、布尔型
+
+    4、对象
+
+    5、数组
+
+
+    数值型、字符型、布尔型之间转换：
+
+        转换成数值型
+
+            Number()	把对象的值转换为数字。
+
+            parseFloat()	解析一个字符串并返回一个浮点数。
+
+            parseInt()	解析一个字符串并返回一个整数。
+        
+        转换成字符型
+
+            String()	把对象的值转换为字符串。
+
+
+        转换成布尔型
+
+            Boolean()
+
+            new Boolean(值)  把对象的值转换为布尔型。
+
+
+            0、false、""、 ''、null、undefined、NaN转换成布尔型值为false，其他均为true。
+
+        全局函数：
+
+            http://www.w3school.com.cn/jsref/jsref_obj_global.asp
+
+
+三、基础语法
+
+    1、变量
+
+       1）变量的声明与定义
+
+          var 变量名;
+
+          var 变量名 = 值;
+
+
+          例如：
+
+              var a;
+
+              a = 10;
+
+              a = 20.25;
+
+              a = "张三";
+
+              a = '张三'; 
+
+              a = true;
+
+              动态类型，变量的类型由值确定。
+
+        2）全局变量与局部变量
+
+           全局变量：函数外声明的变量；
+
+           局部变量：函数内声明的变量。
+
+           注意：局部变量与全部变量名可以重复，在JavaScript中，变量名可以重复，后声明的变量覆盖前面声明的变量。
+
+                 若声明时直接给变量赋值，可以省略var关键字；函数中这样声明变量，该变量为全局变量。
+
+
+    2、运算符
+
+       http://www.w3school.com.cn/js/js_operators.asp
+
+       算术运算符
+
+
+       关系运行符
+
+           ===  全等于，值域类型均相等，结果才为true。
+
+       逻辑运算符
+
+
+       赋值元素符
+
+
+       运算符优先级：
+
+           http://www.cnblogs.com/yy-hh/p/4624792.html
+
+
+    3、语句
+
+       顺序语句
+
+
+       分支语句
+
+           http://www.w3school.com.cn/js/js_if_else.asp
+
+           if..elseif..else
+
+           switch
+
+
+       循环语句
+
+           while
+
+           do..while
+
+           for
+
+           for in
+
+
+       跳转语句
+
+           continue
+
+           break;
+
+
+    3、函数
+
+       被调用时执行的可重复使用的代码块。
+
+       http://www.w3school.com.cn/js/js_functions.asp
+
+       1）语法规则：
+
+
+          function 函数名(参数列表) {
+
+               return 值;
+          }
+
+
+       2）调用函数
+
+          参数可以不用一致；
+
+          arguments数组，用于接收参数。
+
+四、数组
+
+    数组对象用来在单独的变量名中存储一系列的值。
+
+    http://www.w3school.com.cn/js/js_obj_array.asp
+
+
+    1、数组的定义：
+
+       1）静态初始化
+
+          var 数组名 = [元素1, 元素2, ..., 元素n];
+
+
+       2）动态初始化
+
+          var 数组名 = new Array();
+
+          var 数组名 = new Array(初始容量);
+
+          var 数组名 = new Array(元素1, 元素2, ..., 元素n);
+
+    
+       注意：JavaScript中数组的长度不是固定，随着元素的增加而自动增长。
+
+    2、设置与获得数组元素
+
+       1）设置数组元素
+
+          数组名[下标] = 值; //下标从0开始，值任意类型。
+
+       2）获得数组元素
+
+          数组名[下标];
+
+    3、Array对象的常用方法
+
+       http://www.w3school.com.cn/jsref/jsref_obj_array.asp
+
+       splice() //向/从数组中添加/删除项目，然后返回被删除的项目
+
+       1）插入元素
+
+
+       2）修改元素    
+
+
+       3）删除元素
+
+    4、数组非数字下标
+
+       并不是给数组添加元素，而是给数组对象添加属性。
+
+五、对象
+
+   1、对象的分类
+
+      1）自定义对象
+
+         a）JSON（JavaScript Object Notation）JavaScript对象标记
+
+            JavaScript对象的一种直接表示方式。
+
+
+            JSON对象与JSON字符串的转换
+
+                JSON字符串转换成JSON对象：
+
+                    JSON.parse();    //html5
+
+                    eval();
+
+                JSON对象转换成JSON字符串：
+
+                    JSON.stringify();   //html5
+
+
+         b）构造函数
+
+            用于创建JavaScript对象的函数。
+
+
+            I）构造函数内部添加属性与函数
+
+
+            II）构造函数外部添加属性与函数
+
+                构造函数外部，即给创建出的对象设置属性与函数，是独立的。
+
+                函数的原型对象设置属性与函数，是共享的。
+
+
+          c）继承
+
+             http://www.jb51.net/article/44875.htm
+
+
+      2）内置对象
+
+         http://www.w3school.com.cn/jsref/jsref_obj_number.asp
+
+         Object
+
+         Number
+
+         Boolean
+
+         String
+
+         Date
+
+         Math
+
+         RegExp
+
+             http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp
+
+         Array
+
+
+      3）宿主对象
+
+         BOM  浏览器对象模型
+
+            http://www.w3school.com.cn/jsref/dom_obj_navigator.asp
+
+            Window    窗口对象
+
+                常用属性：
+
+                    navigator	对 Navigator 对象的只读引用。
+
+                    location	用于窗口或框架的 Location 对象。
+
+                    history	对 History 对象的只读引用。
+
+                    screen	对 Screen 对象的只读引用
+
+                    opener	返回对创建此窗口的窗口的引用。
+
+                    self	返回对当前窗口的引用。等价于 Window 属性。
+
+                    parent	返回父窗口。
+
+                    top	        返回最顶层的先辈窗口。
+
+
+                常用方法：
+
+                    alert();   //弹出警告框
+                   
+                    confirm();   //弹出选择对话框
+
+                    open();   //打开一个子窗口
+
+                    close();   //关闭当前窗口
+
+                    setInterval();   //按照指定的周期（以毫秒计）来调用函数或计算表达式
+
+                    setTimeout();   //在指定的毫秒数后调用函数或计算表达式
+
+            Screen
+
+            Location   地址栏对象
+
+                对象包含有关当前 URL 的信息。
+
+                常用属性：
+
+                    href	设置或返回完整的 URL。
+
+                常用方法：
+
+                    assign()	加载新的文档。
+
+                    reload()	重新加载当前文档。
+
+                    replace()	用新的文档替换当前文档。
+
+
+            History    历史列表对象
+
+                对象包含用户（在浏览器窗口中）访问过的 URL。
+
+                常用属性：
+           
+                    length	返回浏览器历史列表中的 URL 数量。
+
+                常用方法：
+               
+                    back()	加载 history 列表中的前一个 URL。
+    
+                    forward()	加载 history 列表中的下一个 URL。
+
+                    go()	加载 history 列表中的某个具体页面。
+
+            Navigator
+
+            Cookies
+
+                跨域访问
+
+                一级域名与二级域名
+
+         DOM
+
+
+
+六、事件与事件流
+
+    1、什么事件？
+
+       可以理解成动作（或行为），即在某个元素或窗口上的动作（或行为）。 
+
+       事件通常与函数配合使用，这样就可以通过发生的事件来驱动函数执行 
+
+    2、常用事件：
+
+       http://www.w3school.com.cn/jsref/jsref_events.asp
+
+    3、使用JS给元素注册事件
+
+       http://www.itxueyuan.org/view/6338.html
+
+       1）添加事件属性
+
+       2）使用attachEvent()绑定事件
+
+       3）使用addEventListener()添加事件监听
+
+    4、事件对象
+
+       http://www.w3school.com.cn/jsref/dom_obj_event.asp
+
+       event对象
+
+       事件被触发，均会产生一个事件对象，代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、
+       鼠标按钮的状态。
+
+       1）获得事件对象
+
+          a）window.event;
+
+          b）默认情况情况下，event是函数的第一个参数。
+
+       2）常用属性：
+
+          button	返回当事件被触发时，哪个鼠标按钮被点击。
+
+          clientX	返回当事件被触发时，鼠标指针的水平坐标。
+
+          clientY	返回当事件被触发时，鼠标指针的垂直坐标。
+
+          target|srcElement	返回触发此事件的元素（事件的目标节点）。
+
+          layerX        返回当事件被触发时，相对于父级鼠容器标指针的水平坐标。
+
+          layerY        返回当事件被触发时，相对于父级容器鼠标指针的垂直坐标。
+       
+       3）常用方法：
+
+          preventDefault()	通知浏览器不要执行与事件关联的默认动作。
+
+          stopPropagation()	不再派发事件。   
+
+
+    5、事件流 
+
+       所谓事件流，就是事件传播形成的流。
+
+       1）事件传播
+
+          多个元素间存在父子关系，默认情况下，先子级元素触发事件，再父级元素触发事件。
+
+              若子级没有注册这个事件，而父级注册了该事件，父级触发事件。
+
+          所谓事件传播，就是存在父子级关系的元素之间的事件传播，即依次触发事件。
+
+
+       2）两种事件流：
+
+          a）事件冒泡
+
+             默认的。
+
+             先子级触发事件，再父级触发事件。
+
+          b）事件捕获
+
+             先父级触发事件，再子级触发事件。
+
+
+扩展：Event Loop
+
+
+七、DOM 文档对象模型
+
+    http://www.w3school.com.cn/js/js_htmldom.asp
+
+    1、DOM树
+
+       HTML DOM 模型被构造为对象的树；
+
+       由文档的对象形成的树，这些对象对应网页中的标签，这些标签存在父子级（包含）关系，所以这些对象形成一个树型结构。
+
+    2、DOM常用操作: 
+
+       1）获得DOM对象
+
+          getElementById();
+
+          getElementsByName();
+
+          getElementsByTagName();
+
+          getElementsByClassName();
+
+
+       2）获得与修改对象的属性
+
+          getAttribute(key);
+
+          setAttribute(key, value);
+
+       3）获得与修改对象的样式
+
+          style属性对象
+
+          style.styleName;
+
+          style.styleName = 值;
+
+       4）获得与修改对象内容
+
+          innerText   嵌入文本
+
+          innerHTML   嵌入HTML元素
+
+          outerText   替换元素，替换成文本
+
+          outerHTML   替换元素，替换新的HTML元素
+
+
+    3、DOM节点操作：
+
+       1）新建节点
+
+          createElement(标记名);
+       
+       2）修改节点
+
+          修改属性
+
+          修改样式
+
+          修改内容
+
+
+       3）删除节点
+
+
+       4）获得节点
+
+
+       5）克隆节点
+
+          clone();  //浅度克隆
+
+          clone(true);  //深度克隆
+
+
+       6）节点类型
+
+
+
+练习
+
+   1、使用动态初始化数组的方式创建数组，使用for..in循环遍历数组的元素。
+
+   2、定义函数格式化日期，日期格式：yyyy年MM月dd日 HH:mm:ss
+
+
+作业
+
+   1、定义商品的构造函数，定义数组封装多个商品对象，定义订单的构造函数。
+
+      1) 商品对象中：
+
+         定义函数，返回商品基础数据。
+
+      2）订单对象中：
+
+         定义函数，展示所有订购的商品;   
+
+             商品名称    数量     单价
+
+         定义函数，计算要支付的金额。
+
+   2、使用JavaScript实现抽奖程序。
+
+      要求：界面美观。
+
+   3、使用JavaScript实现网络时钟程序。
+
+   4、完善抽奖程序
+
+      1）解决同时存在多个定时器执行的问题；
+
+      2）结束时，放慢选择奖品的速度的效果。
+
+   5、[可选]实现网页中Banner横幅的图像滚动切换效果
+
+      无缝滚动图像
+
+   6、制作网页的横向导航菜单
+
+         onmouseover
+
+         onmouseout
+
+         display: none;
+
+         display: block;
+
+   7、[可选]实现网页中Banner横幅的图像渐隐切换效果
+
+          
+
+
+
+
+
+
+

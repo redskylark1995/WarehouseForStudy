@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>横幅图像无缝滚动</title>
+		<style>
+			#banner {
+				position: relative;
+				width: 1000px;
+				height: 500px;
+				margin: 50px auto 0px;
+				overflow: hidden;
+			}
+			#banner #btnLeft {
+				position: absolute;
+				width: 27px;
+				height: 66px;
+				top: 217px;
+				left: 0px;
+				background-image: url(img/jt7.png);
+				background-position-y: -201px;
+				cursor: pointer;
+			}
+			#banner #btnLeft:hover {
+				background-position-y: 0px;
+			}
+			#banner #btnRight {
+				position: absolute;
+				width: 27px;
+				height: 66px;
+				top: 217px;
+				right: 0px;
+				background-image: url(img/jt7.png);
+				background-position-y: -134px;
+				cursor: pointer;
+			}
+			#banner #btnRight:hover {
+				background-position-y: -67px;
+			}
+			#banner div {
+				width: 400%;
+				height: 100%;
+			}
+			#banner div img {
+				float: left;
+			}
+		</style>
+		<script src="js/scroll.js"></script>
+	</head>
+	<body>
+		<div id="banner">
+			<div id="btnLeft" onclick="scrollImage(0)"></div>
+			<div id="showImage">
+			    <img src="img/b1.jpg" width="1000" height="500" />
+			    <img src="img/b2.jpg" width="1000" height="500" />
+			    <img src="img/b3.jpg" width="1000" height="500" />
+			    <img src="img/b1.jpg" width="1000" height="500" />
+			</div>
+			<div id="btnRight" onclick="scrollImage(1)"></div>
+		</div>
+	</body>
+</html>

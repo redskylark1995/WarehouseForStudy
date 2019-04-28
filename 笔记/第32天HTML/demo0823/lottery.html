@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在线抽奖</title>
+		<style>
+			body {
+				background-image: url(img/bg1.jpg);
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+			}
+			#lottery {
+				position: relative;
+				width: 380px;
+				height: 200px;
+				margin: 0px auto;
+				background-color: rgba(255,255,255,0.6); /*背景透明度*/
+				border: solid 5px lightcoral;
+			    border-radius: 10px;
+			}
+			#lottery p {
+				text-align: center;
+				padding-top: 10px;
+			}
+			#lottery .msg {			
+				font-size: 20px;
+				font-weight: bold;
+				padding-top: 70px;
+				color: #EE0000;
+			}
+			#lottery p input {
+				width: 80px;
+				height: 30px;
+				background-color: orangered;
+				border: none;
+				border-radius: 5px;
+				font-size: 12px;
+				color: #FFF;
+				letter-spacing: 1px;
+				cursor: pointer;
+			}
+			#lottery p input:hover {
+				background-color: gold;
+				color: #000;
+				box-shadow: 0px 0px 20px 5px #000; /*盒子阴影*/
+			}
+			#clock {
+				position: absolute;
+				width: 180px;
+				height: 30px;
+				top: 5px;
+				right: 5px;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 5px;
+				background-color: rgba(255,255,255,0.9);
+				font-size: 12px;
+			}
+		</style>
+		<script>
+			//定义奖品数组
+			var awards = ["联想笔记本","华为手机","格力空调","100Q币","30元话费","再接再厉"];
+			
+			/**
+			 * 抽奖
+			 */
+			function lottery() {
+				//获得奖品的下标
+				//alert(Math.floor(10.69));
+				var index = parseInt(Math.random()*awards.length);
+				//定义获奖信息变量
+				var message = awards[index];
+				//判断是否抽到奖品
+				if(index<awards.length-1) {
+					message = "恭喜你，获得: \""+message+"\"!";
+				}
+				//写入奖品的信息
+				document.getElementById("message").innerHTML = message;
+			}
+			
+			/**
+			 * 格式化日期
+			 */
+			function dateFormat(date) {
+				return date.getFullYear()+"年"
+				    +(date.getMonth()+1<10?"0"+(date.getMonth()+1):date.getMonth()+1)+"月"
+				    +(date.getDate()<10?"0"+date.getDate():date.getDate())+"日 "
+				    +(date.getHours()<10?"0"+date.getHours():date.getHours())+":"
+				    +(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes())+":"
+				    +(date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds());
+			}
+			
+			/**
+			 * 网络时钟
+			 */
+			function clock() {
+				//写入时间到指定区域
+				document.getElementById("clock").innerHTML = dateFormat(new Date());
+			}
+			
+			/**
+			 * 初始化
+			 */
+			function init() {
+				//获得窗口的尺寸
+				//http://www.cnblogs.com/lf6112/archive/2011/07/26/2117348.html
+				//alert(document.body.clientWidth+","+document.body.clientHeight);
+				//alert(document.documentElement.clientWidth+","+document.documentElement.clientHeight);
+				//获得窗口的宽度与高度
+				var width = document.documentElement.clientWidth;
+				var height = document.documentElement.clientHeight;
+				//设置抽奖窗口，垂直居中
+				document.getElementById("lottery").style.top = (height-200)/2+"px";
+				//初始化时间
+				clock();
+				//设置定时器，每过1秒，更新时间
+				setInterval("clock()", 1000);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div id="lottery">
+			<p id="message" class="msg"></p>
+			<p><input type="button" value="开始抽奖" onclick="lottery()" /></p>
+		</div>
+		<div id="clock"></div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文本样式</title>
+		<style>
+			body {
+				font-size: 12px;
+			}
+			table tr td {
+				/*ext-indent: 32px;*/
+				text-indent: 2em;
+				text-align: left;
+				/*word-spacing: 5px;
+				letter-spacing: 5px;*/
+				text-transform: capitalize;
+				text-decoration: underline;
+				word-wrap: break-word;
+				word-break: break-all;
+				vertical-align: top;
+			}
+			div {
+				width: 800px;
+				height: 200px;
+				background-color: lavenderblush;
+				text-align: left;
+				/*vertical-align: middle;*/ /*无效果*/
+				line-height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<table width="800" align="center" cellspacing="1" cellpadding="5" bgcolor="#ADD8E6"> 
+			<tr>
+				<td bgcolor="#FFF" height="200">
+					把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。
+                    CSS 提供了 text indent 属性，该属性可以方便地实现缩进textindent 。
+                                                       通过使用 text-indent 属性，所有元素的第一行都可以缩进一个给定的长度，甚至该长度可以是负值。
+                                                       这个属性最常见的用途是将段落的首行缩进，下面的规则会使所有段落的首行缩进。
+				</td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<center>
+			<div>
+                                            把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。
+                CSS 提供了 text indent 属性，该属性可以方便地实现缩进textindent 。
+                CSS 提供了 text indent 属性，该属性可以方便地实现缩进textindent 。                           
+		    </div>
+		</center>
+	</body>
+</html>

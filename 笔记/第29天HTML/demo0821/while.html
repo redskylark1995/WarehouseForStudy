@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>循环语句</title>
+		<script>
+			//while循环
+			var i=1;
+			while(i<=5) {
+				document.write(i);
+				document.write("&emsp;");
+				i++;
+			}
+			document.write("<hr>");
+			//do..while循环
+			i = 1;
+			do {
+				document.write(i);
+				document.write("&emsp;");
+				i++;
+			} while(i<=5);
+			document.write("<hr>");
+			//for循环
+			for(i=1; i<=5; i++) {
+				document.write(i);
+				document.write("&emsp;");
+			}
+			document.write("<hr>");
+			//for..in循环
+			var arr = ["张三", "李思", "王武", "赵柳", "孙琦"];
+			for(i in arr) {
+				document.write(arr[i]);
+				document.write("&emsp;");
+			}
+			document.write("<hr>");
+			arr[10] = 100;
+			for(i=0; i<arr.length; i++) {
+				document.write(arr[i]);
+				document.write("&emsp;");
+			}
+			document.write("<hr>");
+			document.write(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

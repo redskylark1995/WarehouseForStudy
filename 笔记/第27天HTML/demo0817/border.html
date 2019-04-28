@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>边框样式</title>
+		<style>
+			div {
+				width: 500px;
+				height: 260px;
+				/*四个边样式相同*/
+				/*border: solid 1px #4876FF;*/
+				/*border-style: solid;
+			    border-width: 1px;
+			    border-color: #20B2AA;*/
+				/*上下左右不同颜色*/
+				/*border-top: double 5px #4876FF;
+				border-bottom: dotted 5px #4876FF;
+				border-left: dashed 5px #20B2AA;
+				border-right: ridge 10px #20B2AA;*/
+				
+				border: solid 27px #4876FF;
+				
+				/*CSS3*/
+				/*圆角半径*/
+				/*border-radius: 10px;*/
+				/*图像边框*/
+				/*http://www.360doc.com/content/14/1016/13/2792772_417403574.shtml*/
+				/*border-image: url(img/border.png) 27 27 27 27 round;*/
+				border-image: url(img/border.png);
+                border-image-slice: 27 27 27 27;
+                border-image-repeat: stretch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+
+</html>

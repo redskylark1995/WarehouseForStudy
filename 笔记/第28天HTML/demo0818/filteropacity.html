@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滤镜与透明度</title>
+		<style>
+			/*img {
+				filter: alpha(opacity=50);
+				opacity: 0.5;
+			}*/
+			#imgshadow {
+				position: absolute;
+				width: 480px;
+				height: 300px;
+				top: 10px;
+				left: 10px;
+				filter: alpha(opacity=0);
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/1.jpg" width="480" height="300"  />
+		<div id="imgshadow"></div>
+	</body>
+</html>

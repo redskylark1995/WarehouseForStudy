@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>浮动与清除浮动</title>
+		<style>
+			#container {
+				width: 1000px;
+				border: solid 1px #E5E5E5;
+				margin: 50px auto;
+				overflow: auto; /*溢出样式， 规定内容超出范围后，任何处理的样式*/
+			}
+			#container div {
+				width: 200px;
+				height: 160px;
+				border: solid 1px #4876FF;
+				margin: 20px 50px;
+				float: left; /*元素自动填充所在区域的空白处，放不下时，就到下一行继续浮动。   浮动元素不会撑开父级容器*/
+			}
+			.field {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div>1</div>
+			<div class="field">2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+		</div>
+	</body>
+</html>

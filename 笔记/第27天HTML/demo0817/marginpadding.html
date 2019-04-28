@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>边界与填充</title>
+		<style>
+			body {
+				margin: 0px;
+			}
+		    div {
+		    	width: 600px;
+		    	border: solid 1px #4876FF;
+		    	/*margin: 20px; *//*四周*/
+		    	/*margin: 50px 20px;*/ /*上下 左右*/
+		    	/*margin: 50px 20px 50px;*/ /*上   左右   下 */
+		    	/*margin: 50px 20px 50px 0px;*/ /*上   右   下   左*/
+		    	/*margin实现水平居中*/
+		    	margin: 50px auto;
+		    }
+		    #div2 {
+		    	margin: 30px; /*相邻元素均有边界，挨着的两边的距离是两边边界的最大值*/
+		    	padding: 20px;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<p>边框属性(border)用来设定一个元素的边线。</p>
+			<p>边距属性(margin)是用来设置一个元素所占空间的边缘到相邻元素之间的距离。</p>
+			<p>间隙属性(padding)是用来设置元素内容到元素边界的距离。</p>
+		</div>
+		<div id="div2">
+			<p>边框属性(border)用来设定一个元素的边线。</p>
+			<p>边距属性(margin)是用来设置一个元素所占空间的边缘到相邻元素之间的距离。设置一个元素所占空间的边缘到相邻元素之间的距离。</p>
+			<p>间隙属性(padding)是用来设置元素内容到元素边界的距离。</p>
+		</div>
+	</body>
+
+</html>

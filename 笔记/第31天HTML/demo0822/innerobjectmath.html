@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数学函数对象</title>
+		<style>
+			#circle {
+				position: absolute;
+				top: 100px;
+				left: 500px;
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				background-color: darkcyan;
+			}
+		</style>
+		<script>
+			
+			var tops = 100;
+			var left = 500;
+			var angle = 0;
+			var r = 100;
+			
+			/**
+			 * 旋转图形
+			 * @param {Object} angle
+			 */
+			function around() {
+				//计算1度对应弧度
+				var l = 2*Math.PI/360;
+				//计算正弦与余弦值
+				//console.log(Math.sin(30*l));
+				//console.log(Math.cos(30*l));
+				//角度为30度时，圆心的坐标
+				var x = Math.round(Math.sin(angle*l)*r);
+				var y = Math.round(Math.cos(angle*l)*r);
+				//console.log(x+","+y);
+				//获得移动图像的对象
+				var circle = document.getElementById("circle");
+				//更改位置
+				circle.style.top = tops+r-y+"px";
+				circle.style.left = left+x+"px";
+				//累计角度
+				angle += 10;
+				if(angle>=360) {
+					angle = 0;
+				}
+			}
+		</script>
+	</head>
+	<body onload="setInterval('around()', 50)">
+		<!--<p id="showText"></p>
+		<script>
+			var arr = ['第一组','第二组','第三组','第四组','第五组','第六组'];
+			var index = parseInt(Math.random()*arr.length);
+			document.getElementById("showText").innerHTML = arr[index];
+		</script>-->
+		<div id="circle"></div>
+	</body>
+</html>

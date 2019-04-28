@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定位样式</title>
+		<style>
+			div {
+				width: 500px;
+				height: 200px;
+				/*margin: 10px auto;*/
+			}
+			#layer1 {
+				position: relative;
+				background-color: #6495ED;
+				height: 1200px;
+				z-index: 10;
+			}
+			#layer2{
+				position: relative; /*生成相对定位的元素，相对于其正常位置进行定位。*/
+				background-color: #000;
+				/*left，right，top，bottom等属性在正常文档流中偏移位置*/
+				top: -20px;
+				left: 20px;
+				/*right: -20px;*/
+			}
+			#layer3 {
+				position: absolute;
+				background-color: red;
+				top: 0px;
+				left: 0px;
+				z-index: 5;
+			}
+			#layer4 {
+				position: absolute;
+				background-color: rosybrown;
+				top: 0px;
+				left: 50px;
+				z-index: 4;
+			}
+			#layer5 {
+				position: fixed;
+				width: 200px;
+				height: 200px;
+				border: solid 1px lightgray;
+				right: 5px;
+				bottom: 5px;
+				background-color: powderblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="layer1"></div>
+		<div id="layer2"></div>
+		
+		<div id="layer3"></div>
+		<div id="layer4"></div>
+		
+		<div id="layer5"></div>
+	</body>
+</html>

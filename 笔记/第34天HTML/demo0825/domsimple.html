@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM的对象简单操作</title>
+		<link id="themCSS" rel="stylesheet" href="css/sky.css" />
+		<script>
+			function toggleThem() {
+				//获得主体下列菜单对象
+				var them = document.getElementById("them");
+				//获得主题名称
+				themName = them.value;
+				//alert(document.getElementById("themCSS").getAttribute("href"));
+				//设置主题
+				document.getElementById("themCSS")
+				   .setAttribute("href", "css/"+themName+".css");
+			}
+		</script>
+	</head>
+	<body>
+		<p>主题:
+			<select id="them" onchange="toggleThem()">
+				<option value="sky">天空</option>
+				<option value="summer">夏季</option>
+			</select>
+		</p>
+		<div>
+			<p id="text" style="text-align:left;">innerText与innerHTML的区别?</p>
+			<p style="text-align:left;">
+				<input type="button" value="innerText" 
+					onclick="document.getElementById('text')
+					    .innerText='<span style=color:red;>嵌入文本!</span>'" />
+				<input type="button" value="innerHTML"
+					onclick="document.getElementById('text')
+					    .innerHTML='<span style=color:red;>嵌入HTML元素!</span>'" />
+			</p>
+			<p style="text-align:left;">
+				<input type="button" value="outerText" 
+					onclick="document.getElementById('text')
+					    .outerText='<span style=color:red;>嵌入文本!</span>'" />
+				<input type="button" value="outerHTML"
+					onclick="document.getElementById('text')
+					    .outerHTML='<span style=color:red;>嵌入HTML元素!</span>'" />
+			</p>
+		</div>
+	</body>  
+</html>

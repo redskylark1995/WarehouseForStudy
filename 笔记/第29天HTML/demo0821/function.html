@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+		<script>
+			/**
+			 * 求和的函数
+			 * @param {Object} x
+			 * @param {Object} y
+			 */
+			/*function fun1(x, y) {
+				var rs = x+y;
+				return rs;
+			}*/
+			function fun1() {
+				var rs = 0;
+				var args = arguments; //参数数组
+				for(i=0; i<args.length; i++) {
+					rs += args[i];
+				}
+				return rs;
+			}
+			
+			/*function fun1() {
+			
+			}*/
+			
+			var rs = fun1(10, 8, 9, 6);
+			document.write(rs);
+			document.write("<br>");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

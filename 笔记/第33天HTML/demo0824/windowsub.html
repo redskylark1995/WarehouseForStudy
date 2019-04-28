@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录窗口</title>
+		<script>
+			function login() {
+				var userName = document.getElementById("userName");
+				//判断用户名是否为空
+				if(!userName.value) {
+					alert("请输入用户名!");
+					return;
+				}
+				//操作父窗口中文档内容
+				opener.document.getElementById("loginMsg").innerHTML = userName.value;
+				//关闭子窗口
+				window.close();
+			}
+		</script>
+	</head>
+	<body>
+		<p><input type="text" id="userName" name="userName"></p>
+		<p><input type="password" id="password" name="password"></p>
+		<p><input type="button" value="登 录" onclick="login()" /></p>
+	</body>
+</html>

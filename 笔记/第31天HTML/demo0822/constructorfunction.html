@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数：外部添加属性与函数</title>
+		<script>
+			/**
+			 * 人员对象的构造函数
+			 * @param {Object} name
+			 */
+			function Person(name) {
+				this.name = name;
+				
+				this.getName = function() {
+					return this.name;
+				}
+			}
+			//创建人员对象
+			var p1 = new Person("张三");
+			//访问对象的方法
+			document.write(p1.getName());
+			document.write("<br>");
+			//外部添加属性
+			p1.gender = "男";
+			/*p1.getGender = function() {
+				return this.gender;
+			}*/
+			Person.prototype.getGender = function() {
+				return this.gender;
+			}
+			
+			document.write(typeof(Person));
+			document.write("<br>");
+			document.write(typeof(Person.prototype)); //获得Person函数的对象
+			document.write("<br>");
+			
+			document.write(p1.getName()+","+p1.getGender());
+			document.write("<br>");
+			
+			//新建对象
+			var p2 = new Person();
+			p2.name = "李思";
+			p2.gender = "女";
+			document.write(p2.getName()+","+p2.getGender());
+			document.write("<br>");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

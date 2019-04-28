@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>超连接</title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#">当前页</a></li>
+			<li><a id="header" href="#footer">尾部</a></li>
+			<li><a href="http://www.baidu.com">百度</a></li>
+			<li><a href="lists.html#dept">列表页</a></li>
+		</ul>
+		<!--<a href="http://www.baidu.com"><img src="img/fengjing.jpg" width="1024" height="678" /></a>-->
+		<img src="img/fengjing.jpg" width="1024" height="678" usemap="#fengjingMap" />
+		<!--设置图像的热区-->
+		<map id="fengjingMap" name="fengjingMap">
+			<area shape="rect" coords="0,0,100,100" href="http://www.baidu.com" />
+			<area shape="circle" coords="512,339,50" href="http://www.sogou.com" title="搜狗" />
+		</map>
+		<!--锚点：连接到网页中的指定位置-->
+		<p id="footer"><a href="#header">顶部</a></p>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件流</title>
+		<script>
+			//使用JS注册事件监听
+			function init() {
+				document.getElementsByTagName(
+					"div")[0].addEventListener("click", function(event){
+						alert("div");
+						//阻止事件传播，中断事件流
+						event.stopPropagation();
+					}, true); //true 表示使用事件捕获
+				document.getElementsByTagName(
+					"p")[0].addEventListener("click", function(){
+						alert("p");
+					}, false); //false 表示使用事件冒泡
+			    document.getElementsByTagName(
+					"input")[0].addEventListener("click", function(){
+						alert("input");
+					}, true);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<!--<div onclick="alert('div')">
+			<p onclick="alert('p')">
+				<input type="button" value="请单击" onclick="alert('button')"  />
+			</p>
+		</div>-->
+		<div>
+			<p>
+				<input type="button" value="请单击" />
+			</p>
+		</div>
+	</body>
+</html>

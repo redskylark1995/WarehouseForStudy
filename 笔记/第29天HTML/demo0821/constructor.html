@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数</title>
+		<script>
+			/*//json对象
+			var person = {name:"张三",
+			         gender:"男",
+			         age:18,
+			         toString:function(){
+			         	return this.name+","+this.gender+","+this.age;
+			         }
+			    };
+			//调用person对象toString()函数，输出人员信息
+			document.write(person.toString());
+			document.write("<br>")
+			document.write(person.name);*/
+			//构造函数
+			function Person(name, gender, age) {
+				this.name = name;
+				this.gender = gender;
+				this.age = age;
+				
+				this.toString = function() {
+					return this.name+","+this.gender+","+this.age;
+				}
+			}
+			//创建人员对象
+			var person = new Person("李思", "男", 19);
+			//访问对象函数
+			document.write(person.toString());
+			document.write("<br>");
+			person.gender = "女";
+			document.write(person.toString());
+			document.write("<br>");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

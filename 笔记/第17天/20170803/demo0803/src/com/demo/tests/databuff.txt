@@ -1,0 +1,25 @@
+过滤流
+
+    1、FilterInputStream
+
+       常用子类：
+
+           DataInputStream       基本类型数据输入流
+
+           BufferedInputStream   字节缓冲输入流   
+
+           PushbackInputStream   回推流
+
+    2、FilterOutputStream
+    
+
+       重用子类：
+
+           DataOutputStream       基本数据类型输出流
+
+           BufferedOutputStream   字节缓冲输出流
+中软国际!
+中软国际!
+中国软件!
+中国软件!
+中国软件!

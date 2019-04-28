@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>:not伪类选择器</title>
+		<style>
+			.p {
+				font-family: "微软雅黑";
+				font-weight: bold;
+				color: #4876FF;
+			}
+			p:not(.p) {
+				text-decoration: underline;
+			}
+			/*div :not(p) {
+				color: orangered;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>先用鼠标左键在左边大的方框内移动获取颜色(黑色三角上下移动调整颜色深浅)</p>
+			<p class="p">然后在右边进行微调</p>
+			<p>当你最终确定所要选择的颜色后</p>
+			<p class="a">就可以直接复制Hex框内的颜色代码</p>
+		</div>
+	</body>
+</html>

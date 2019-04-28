@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义右击弹出菜单</title>
+		<style>
+			div {
+				position: relative;
+				width: 1000px;
+				margin: 100px auto 0px;
+			}
+			#popupMenu {
+				position: absolute;
+				width: 100px;
+				border: solid 1px lightgrey;
+				top: 0px;
+				left: 0px;
+				margin: 0px;
+				z-index: 10;
+				display: none;
+				background-color: #FFF;
+			}
+			#popupMenu ul {
+				padding: 0px;
+				margin: 0px;
+			}
+			#popupMenu ul li {
+				font-size: 12px;
+				line-height: 30px;
+				text-align: center;
+				list-style-type: none;
+				border-bottom: solid 1px #E5E5E5;
+				cursor: pointer;
+			}
+			#popupMenu ul li:last-child {
+				border-bottom: none;
+			}
+		</style>
+		<script>
+			//禁用弹出菜单
+			document.oncontextmenu = function(event) {
+				//alert(1);
+				//获得鼠标点击的坐标
+				var x = event.clientX;
+				var y = event.clientY;
+				//alert(x+","+y);
+				//获得弹出菜单对象
+				var popupMenu = document.getElementById("popupMenu");
+				//设置位置
+				popupMenu.style.top = y+"px";
+				popupMenu.style.left = x+"px";
+				//显示菜单
+				popupMenu.style.display = "block";
+				//阻止事件传播，即阻止弹出自带的菜单
+				return false;
+			}
+			//注册鼠标按下事件
+			document.onmouseup = function(event) {
+				//alert(event.button);
+				//判断按下的是否是鼠标左键
+				if(event.button==0) {
+					//获得弹出菜单对象
+				    var popupMenu = document.getElementById("popupMenu");
+				    //隐藏菜单
+				    popupMenu.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="popupMenu">
+		    <ul>
+		    	<li><a href="navigator.html">浏览</a></li>
+		    	<li>上传</li>
+		    	<li>下载</li>
+		    	<li>分享</li>
+		    </ul>
+		</div>
+		<div>
+			<img src="img/banner.jpg" width="1000" height="400" />
+		</div>
+	</body>
+</html>

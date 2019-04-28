@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM操作</title>
+		<style>
+			#upLoadPane {
+				position: relative;
+				width: 300px;
+				margin: 100px auto 0px;
+				border: solid 5px lightgray;
+				border-radius: 10px;
+				padding: 10px 5px;
+			}
+		</style>
+		<script>
+			/**
+			 * 添加新的上传控件
+			 */
+			function addField() {
+				//获得上传控件所存在的容器的DOM对象
+				var uploadFields = document.getElementById("upLoadFields");
+				/*//创建一个新的段落对象
+				var p = document.createElement("p");
+				//创建一个新的上传控件（文件域）对象
+				var upload = document.createElement("input");
+				//设置属性
+				upload.setAttribute("type", "file");
+				upload.setAttribute("name", "uploadFile");
+				//文件域添加给段落
+				p.appendChild(upload);*/
+				//克隆已经存在文件域及其所在段落
+				var p = uploadFields.getElementsByTagName("p")[0].cloneNode(true);
+				//段落添加给容器
+				uploadFields.appendChild(p);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="upLoadPane">
+			<p><input type="button" value="添 加" onclick="addField()" /></p>
+			<div id="upLoadFields">
+				<p><input type="file" name="uploadFile" /></p>
+			</div>
+		</div>
+	</body>
+
+</html>

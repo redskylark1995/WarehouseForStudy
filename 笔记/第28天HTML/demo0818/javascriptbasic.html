@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript基础语法</title>
+		<script>
+			//定义函数
+			function method(x, y) {
+				return x+y;
+			}
+			
+			var x=10, y=20;
+			//调用函数
+			var result = method(x, y);
+			//控制台输出结果
+			console.log("result="+result);
+		</script>
+	</head>
+	<body>
+		<img id="woman" src="img/search3.png" width="33" height="68" />
+		<script>
+			console.log("网页主体中js代码!");
+			//DOM操作
+			var woman = document.getElementById("woman");
+			window.setInterval(function(){
+				var opacity = woman.style.opacity;
+				if(opacity==null||opacity==1) {
+					woman.style.opacity = 0;
+				} else {
+					woman.style.opacity = 1;
+				}
+			}, 200);
+		</script>
+	</body>
+</html>
+<script>
+	console.log("网页尾部js代码!");
+	//BOM操作
+	window.alert("弹出的提示框!");
+	//控制浏览器3秒后关闭
+	//window.setTimeout("window.close()", 3000);
+</script>

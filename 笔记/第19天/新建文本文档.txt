@@ -1,0 +1,68 @@
+package homework0804;
+import java.util.Scanner;
+class AccountTwo {
+	String accountnumber;// 账号
+	String cardholder;// 持卡人
+	int balance;// 余额
+	public AccountTwo() {
+	}
+	public AccountTwo(String accountnumber, String cardholder, int balance) {
+		this.accountnumber = accountnumber;
+		this.cardholder = cardholder;
+		this.balance = balance;
+	}
+}
+class SaveTheMoney extends Thread {
+	AccountTwo a = new AccountTwo();
+	public SaveTheMoney(AccountTwo a) {
+		this.a = a;
+	}
+	@Override
+	public void run() {
+		int number =(int) (Math.random() * 100 + 1);
+		a.balance += number;
+		System.out.println("存入了"+number+"钱");
+	}
+}
+class DrawMonry extends Thread {
+	AccountTwo b = new AccountTwo();
+	public DrawMonry(AccountTwo b) {
+		this.b = b;
+}
+	@Override
+	public void run() {
+		int number = (int) (Math.random() * 100 + 1);
+		if ( b.balance -number> 0) {
+			b.balance -= number;
+			System.out.println("取出了"+number+"钱");
+		} else {
+			b.balance += number;
+			System.out.println("存入了"+number+"钱");
+		}
+	}
+}
+public class SaveAndGetMonry {
+	public static void main(String[] args) throws InterruptedException {
+		AccountTwo a = new AccountTwo("15245256", "张三", 0);
+		int i=0;
+		int max = 0;
+		while (i<100) {
+			Thread t1 = new SaveTheMoney(a);
+			Thread t2 = new DrawMonry(a);
+			//t1.sleep(100);
+			t1.start();
+			t1.join();
+			//t2.sleep(100);
+			t2.start();
+			t2.join();
+			System.out.println("余额为："+a.balance);
+			
+			if(a.balance>max) {
+				max=a.balance;
+			}
+			
+			i++;
+		}
+		System.out.println("最大余额为："+max);
+	}
+}

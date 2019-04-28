@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选择器与字体样式</title>
+		<!--内部样式表-->
+		<style>
+			/*通用选择器*/
+			* {
+				font-family: "繁体","微软雅黑"; /*值为一个字体系列，多种字体使用“,”隔开*/
+				font-size: 12px;
+			}
+			/*标签样式*/
+			p {
+				color: blue;
+			}
+			/*类样式*/
+			.p1 {
+				color: darkred;
+			}
+			/*ID选择器*/
+			#p2 {
+				color: darkgreen;
+			}
+			/*伪类选择器*/
+			p:hover {
+				font-weight: bold;
+				font-size: 24px !important;
+			}
+			p:hover {
+				color: gold;
+				font-size: 12px;
+			}
+			p:nth-child(2n+1) {
+				background-color: lightgray;
+			}
+			p::selection {
+				color: orangered;
+				background-color: lightblue;
+			}
+			/*群组选择器*/
+			div,td {
+				/*font-size: 18px;*/
+				font-size: 1.5em;
+			}
+			/*复合选择器*/
+			p span {
+				background-color: #FFF;
+			}
+			p span:hover {
+				font-weight: normal;
+			}
+			/*兄弟选择器*/ 
+			.p2 ~ p{
+				font-style: italic;
+			}
+			/*属性选择器*/
+			p[abc*="sel"] {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="p1">“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p id="p2">“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<hr/>
+		<div>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</div>
+		<table border="1" cellpadding="5">
+			<tr>
+				<td>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</td>
+			</tr>
+		</table>
+		<hr/>
+		<p><span>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</span></p>
+		<hr />
+		<p class="p2">“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p>“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<hr/>
+		<p abc="sel">“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+		<p abc="selector">“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+	</body>
+</html>

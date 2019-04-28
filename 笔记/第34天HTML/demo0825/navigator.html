@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>横向导航菜单</title>
+		<style>
+			body {
+				font-family: "微软雅黑";
+	            margin: 0px;
+			}
+			#header {
+				position: relative;
+				width: 1000px;
+				margin: 5px auto 0px;
+			}
+			#header #logo {
+				position: relative;
+				margin: 20px 0px 20px;
+			}
+			#header #nav {
+				position: relative;
+				width: 100%;
+				z-index: 10;
+			}
+			#header #nav ul {
+				padding: 0px;
+				margin: 0px;
+				height: 36px;
+				width: 100%;
+				overflow: visible;
+			}
+			#header #nav ul li {
+				float: left;
+				width: 20%;
+				height: 100%;
+				list-style-type: none;
+				border-right: solid 1px #FFF;
+				box-sizing: border-box;
+			}
+			#header #nav ul li a{
+				float: left;
+				width: 100%;
+				height: 100%;
+				color: #666666;
+				text-align: center;
+				line-height: 36px;
+				text-decoration: none;
+				background-color: lightgray;
+			}
+			#header #nav ul li a:hover {
+				color: #6495ED;
+				background-color: #E5E5E5;
+			}
+			#header #nav ul li ul {
+				float: left;
+				width: 100%;
+				padding: 0px;
+				margin: 0px;
+			    display: none;
+			}
+			#header #nav ul li ul li {
+				float: none;
+				width: 100%;
+				height: 36px;
+				list-style-type: none;
+			}
+			#header #nav ul li ul li a {
+				font-size: 14px;
+				border-bottom: solid 1px #FFF;
+				background-color: #E0E0E0;
+			}
+			#header #nav ul li ul li:first-child a {
+				border-top: solid 1px #FFF;
+			}
+			#banner {
+				position: relative;
+				width: 100%;
+				margin-top: 5px;
+			}
+		</style>
+		<script>
+			/**
+			 * 初始化
+			 */
+			function init() {
+				//获得所有的一级菜单项
+				var parentNodes = document.getElementById("nav").children[0].children;
+				//循环给菜单项中超链接绑定事件
+				for(i=0; i<parentNodes.length; i++) {
+					//console.log(parentNodes[i]);
+					//一级菜单项添加鼠标进入事件
+					parentNodes[i].children[0].onmouseover = function() {
+						//获得子级菜单
+						var subNodes = this.parentNode.getElementsByTagName("ul");
+						//判读是否存在子级菜单
+						if(subNodes.length>0) {
+							//显示子级菜单
+						    subNodes[0].style.display = "block";
+						}
+					};
+					//一级菜单项添加鼠标离开事件
+					parentNodes[i].children[0].onmouseout = function(event) {
+						//alert(this.clientHeight)
+						//获得子级菜单
+						var subNodes = this.parentNode.getElementsByTagName("ul");
+						//判读是否存在子级菜单
+						if(subNodes.length>0&&event.layerY<36) {
+							//隐藏子级菜单
+						    subNodes[0].style.display = "none";
+						}
+					}
+				}
+				//banner横幅添加鼠标进入事件
+				document.getElementById("banner").onmouseover = function() {
+					//循环隐藏所有子级菜单
+					for(i=0; i<parentNodes.length; i++) {
+					    var subNodes = parentNodes[i].getElementsByTagName("ul");
+						//判读是否存在子级菜单
+					    if(subNodes.length>0) {
+					     	//隐藏子级菜单
+						    subNodes[0].style.display = "none";
+					    }
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div id="header">
+			<img id="logo" src="img/logo.png" width="230" height="42" />
+			<div id="nav">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li>
+						<a href="#">移动商城</a>
+						<ul>
+							<li><a href="#">买手机</a></li>
+							<li><a href="#">办套餐</a></li>
+							<li><a href="#">办业务</a></li>
+							<li><a href="#">挑配件</a></li>
+							<li><a href="#">立即充值</a></li>
+							<li><a href="#">个人中心</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">我的移动</a>
+						<ul>
+							<li><a href="#">我的账单</a></li>
+							<li><a href="#">套餐余量</a></li>
+							<li><a href="#">已开业务</a></li>
+							<li><a href="#">消费明细</a></li>
+							<li><a href="#">找回密码</a></li>
+						</ul>
+					</li>
+					<li><a href="#">网上营业厅</a></li>
+					<li><a href="#">服务与支持</a></li>
+				</ul>
+			</div>
+			<div id="banner">
+				<img src="img/banner.jpg" width="1000" height="400" />
+			</div>
+		</div>
+	</body>
+</html>

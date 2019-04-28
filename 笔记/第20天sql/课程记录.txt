@@ -1,0 +1,332 @@
+一、结构化数据与非结构化数据
+
+    结构化数据：结构化数据也称作行数据，是由二维表结构来逻辑表达和实现的数据，严格地遵循数据格式与长度规范，
+               主要通过关系型数据库进彳存储和管理。
+
+    非结构化数据：与结构化数据相对的是不适于由数据库二维表来表现的非结构化数据，包括所有格式的办公文档、XML、HTML、
+                 各类报表、图片和咅频、视频信息等。
+
+
+二、数据库（DBMS = Database  Management System）
+
+    数据库(Database)是按照数据结构来组织、存储和管理数据的仓库。
+
+    1、数据库分类：
+
+       关系型数据：
+
+           Oracle、MySQL、SqlServer、DB2、Access
+
+       非关系型数据库(NOSQL = Not Only SQL)
+
+           RedisDB、MongoDB
+
+
+    2、MySQL数据库
+
+       Mysql是最流行的关系型数据库管理系统，在WEB应用方面MySQL是最好的RDBMS(
+       Relational Database Management System：关系数据库管理系统)应用软件之一。
+
+
+    3、数据库的语言分类：
+
+       DDL(Data Definition Language)：数据定义语言
+
+       DML(Data Manipulation Language)：数据操纵语言
+
+       DCL(Data Control Language)：数据控制语言
+
+       TCL(Transaction Control Language)：事物控制语言
+
+
+三、数据类型
+
+    http://www.runoob.com/mysql/mysql-data-types.html
+
+    1、数值型
+
+       int
+
+       bigint    长整型
+
+
+    2、字符型
+
+       varchar
+
+       longblob
+
+       longtext
+
+       思考：
+
+           char与varchar的区别？
+
+              char定长字符串，定义字段时设置的长度，若内容长度不够，自动补齐空格。
+
+              varchar变长字符串，长度就是内容的长度，即字段长度随着内容长度改变而改变。
+
+
+           char、varchar与nchar、nvarchar的区别？
+
+               char、varchar  西文字符一个长度占一个字节，中文字符一个长度占两个字节。
+
+               nchar、nvarchar  西文字符一个长度占两个字节，中文字符一个长度占两个字节。 
+
+
+    3、日期型
+
+       date
+
+       datetime
+
+       timestamp 
+
+
+
+
+四、DDL 数据定义语句
+
+   1、create语句
+
+      创建数据库对象（表、视图、触发器、存储过程、索引等）;
+
+      创建表：
+
+          CREATE TABLE 表名称(
+              列名称1 数据类型,
+              列名称2 数据类型,
+              列名称3 数据类型,
+              ....
+          )
+
+
+   2、alter语句
+
+      1）修改表名
+
+          alter table 原表名 rename 新表名;
+
+      2）添加新列（字段）
+
+          alter table 表名 add 列名 类型;
+
+          alter table 表名 add column(列名1 类型, 列名2 类型, ......);
+
+      3）修改列名
+
+          alter table 表名 change 原列名 新列名 类型;
+
+      4）修改列属性
+
+          alter table 表名 modify 列名 类型 [其他属性];
+
+      5）删除列
+
+          alter table 表名 drop 列名;
+
+
+   3、drop语句
+
+      删除表：
+
+          drop table 表名;
+
+
+   4、truncate清空表
+
+      删除表中所有行数据。
+
+      truncate table 表名;
+
+
+五、DML 数据操纵语句
+
+    1、select语句
+
+       查询表中数据。
+
+       1）查询所有列
+
+          select * from 表名;
+
+       2）查询指定列
+
+          select 列名1, 列名2, ...... from 表名;
+
+       3）条件查询
+
+          select * | 列名1, 列名2, ...... from 表名 where 查询条件;
+
+              查询条件：
+
+                  列名 = 值
+
+              多个查询条件：
+
+                  条件（比较的表达式）使用and、or连接起来。
+
+    2、insert语句
+
+       向表中插入一行新数据。
+
+       insert into 表名[(列名1, 列名2, ......)] values(值1, 值2, ......);
+
+
+    3、update语句
+
+       修改表中的数据。
+
+       update 表名 set 列名1=值1,列名2=值,..... [where 查询条件];
+
+
+    4、delete语句
+      
+       删除表中数据。
+
+       delete from 表名 [where 查询条件];
+
+       思考：truncate 与 不带where字句的delete区别？
+ 
+             1）truncate效率高于delete;
+
+                    truncate清空表，记录一条日志记录；
+
+                    delete删除所有数据，一条条删除，每删除一条，记录一条日志。
+
+             2）truncate操作，不能回滚，不能触发“触发器”；
+
+                delete操作，可以回滚，可以触发“触发器”。
+
+             3）truncate操作，自动增长列还原，还原成初始值，从1开始；
+
+                delete操作，自动增长不还原，保留之前的值。
+
+
+
+Java修饰符：
+
+    类的修饰符
+
+        public
+
+        final
+
+        abstract
+
+
+    类成员的修饰符
+
+        public
+
+        protedcted
+
+        private
+
+        static
+
+        final
+
+        abstract
+
+        synchronized
+
+        transient
+
+
+
+
+
+练习：
+
+   1、
+
+      
+
+
+作业：
+
+
+   1、创建职员表，已知列：ID、姓名、性别、部门、职位、基本工资；
+
+      1）使用create语句创建表；
+
+      2）修改表添加列：出生年月、入职时间、绩效工资；
+
+      3）批量插入多个职员数据，插入数据的列：姓名、性别、部门、职位、出生年月、入职时间；
+
+      4）修改职员的基本工资：
+
+             财务部  4000
+
+             技术部  6000
+
+             市场部  2000
+
+             行政部  3500
+
+      5) 修改职员的绩效工资，自定义
+
+      6）查询技术部男性职员的数据；
+
+      7）[可选]查询年龄>25、工资>3300职员的数据；
+
+      8）[可选]查询出每个部门工资最高职员，修改职位为“部门经理”；
+
+      9）[可选]查询出技术部工资最高职员，修改职位为“部门经理”；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

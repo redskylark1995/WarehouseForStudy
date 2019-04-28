@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript内置对象</title>
+		<script>
+			//Object对象
+			//http://www.365mini.com/page/javascript-new-object.htm
+			/*var num = new Object(18);
+			document.write(typeof(num));
+			document.write("<br/>");
+			document.write(typeof(18));
+			document.write("<br/>");
+			document.write(num instanceof Object);
+			document.write("<br/>");
+			document.write(num instanceof Number);
+			document.write("<br/>");
+			document.write(num instanceof String);
+			document.write("<br/>");
+			var rs = num + 20;
+			document.write(rs);*/
+			//String对象
+			/*document.write("X"+"2".sub());
+			document.write("<br/>");
+			document.write("X"+"2".sup());
+			document.write("<br/>");*/
+			function validate() {
+				//获得用户名输入框的对象
+				var userName = document.getElementById("userName");
+				//判断是否输入值
+				if(!userName.value.trim()) {
+					alert("请输入用户名!");
+					userName.focus();
+					return;
+				}
+				alert(userName.value);
+			}
+	    </script>
+	</head>
+	<body>
+		<p>
+			<input type="text" id="userName" name="userName" />
+		    <input type="button" value="提交" onclick="validate()" />
+		</p>
+	</body>
+</html>

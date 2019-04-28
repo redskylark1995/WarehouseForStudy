@@ -1,0 +1,209 @@
+一、Statement接口
+
+    用于执行静态 SQL 语句并返回它所生成结果。 
+
+    1、常用方法
+
+       boolean execute(String sql) 
+           //执行给定的 SQL 语句，该语句可能返回多个结果。
+
+       ResultSet executeQuery(String sql) 
+           //执行给定的 SQL 语句，该语句返回单个 ResultSet 对象。  
+
+       int executeUpdate(String sql) 
+           //执行给定 SQL 语句，该语句可能为 INSERT、UPDATE 或 DELETE 语句，
+             或者不返回任何内容的 SQL 语句（如 SQL DDL 语句）。
+
+       void addBatch(String sql) 
+           //将给定的 SQL 命令添加到此 Statement 对象的当前命令列表中。  
+
+
+二、ResultSet接口
+
+    表示数据库结果集的数据表，通常通过执行查询数据库的语句生成；即查询返回的结果，是一个行列结构。
+
+    1、常用方法
+
+       boolean next() 
+           //将光标从当前位置向前移一行, 默认光标在第一行之前。 
+
+       int getInt(int columnIndex) 
+           //以 Java 编程语言中 int 的形式获取此 ResultSet 对象的当前行中指定列的值。
+           //列索引从1开始 
+
+       int getInt(String columnLabel) 
+           //以 Java 编程语言中 int 的形式获取此 ResultSet 对象的当前行中指定列的值。 
+
+       ......
+
+       Blob getBlob(int columnIndex) 
+           //以 Java 编程语言中 Blob 对象的形式获取此 ResultSet 对象的当前行中指定列的值。
+ 
+       Blob getBlob(String columnLabel) 
+           //以 Java 编程语言中 Blob 对象的形式获取此 ResultSet 对象的当前行中指定列的值。 
+
+       Object getObject(int columnIndex) 
+           //以 Java 编程语言中 Object 的形式获取此 ResultSet 对象的当前行中指定列的值。
+ 
+       Object getObject(int columnIndex, Map<String,Class<?>> map) 
+           //以 Java 编程语言中 Object 的形式获取此 ResultSet 对象的当前行中指定列的值。
+
+三、PreparedStatement接口
+
+    继承Statement接口。
+
+    表示预编译的 SQL 语句的对象。 
+
+    SQL语句被预编译并存储在 PreparedStatement 对象中。然后可以使用此对象多次高效地执行该语句。 
+
+    使用Connection接口的方法：
+        prepareStatement(String sql)创建一个 PreparedStatement 对象来将参数化的 SQL 语句发送到数据库。 
+
+    带有 IN 参数或不带有 IN 参数的 SQL 语句都可以被预编译并存储在 PreparedStatement 对象中。
+    然后可以有效地使用此对象来多次执行该语句。
+
+    1、常用方法：
+
+       void setInt(int parameterIndex, int x) 
+           //将指定参数设置为给定 Java int 值。 
+
+       .......
+
+       void setBlob(int parameterIndex, InputStream inputStream) 
+           //将指定参数设置为 InputStream 对象。 
+
+    2、与Statement对比，其优点：
+
+       1）定义一个预编译的SQL语句，多次使用，提高执行的效率；
+
+       2）有效防止SQL的注入。
+
+四、批量更新数据
+
+    void addBatch(String sql) 
+        //将给定的 SQL 命令添加到此 Statement 对象的当前命令列表中。 
+
+    int[] executeBatch() 
+        //将一批命令提交给数据库来执行，如果全部命令执行成功，则返回更新计数组成的数组。 
+
+
+五、事务(Transaction)
+
+    事务是访问并可能更新数据库中各种数据项的一个程序执行单元(unit)。
+
+    事务是恢复和并发控制的基本单位。
+
+    在关系数据库中，一个事务可以是一条SQL语句，一组SQL语句组成。
+
+    1、事务应该具有4个属性：原子性、一致性、隔离性、持久性。这四个属性通常称为ACID特性。
+
+       原子性（atomicity） 一个事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做。
+
+       一致性（consistency） 事务必须是使数据库从一个一致性状态变到另一个一致性状态。一致性与原子性是密切相关的。
+
+       隔离性（isolation） 一个事务的执行不能被其他事务干扰。即一个事务内部的操作及使用的数据对并发的其他事务是
+                           隔离的，并发执行的各个事务之间不能互相干扰。
+
+       持久性（durability） 持久性也称永久性（permanence），指一个事务一旦提交，它对数据库中数据的改变就应该是
+                             永久性的。接下来的其他操作或故障不应该对其有任何影响。
+
+    2、Connection 接口
+
+       void setAutoCommit(boolean autoCommit) 
+           //将此连接的自动提交模式设置为给定状态。 
+
+       void commit() 
+           //使所有上一次提交/回滚后进行的更改成为持久更改，并释放此 Connection 对象当前持有的所有数据库锁。 
+
+       void rollback() 
+           //取消在当前事务中进行的所有更改，并释放此 Connection 对象当前持有的所有数据库锁。 
+
+
+
+练习：
+
+   1、
+
+      
+
+
+作业：
+
+
+   1、MySQL作业
+
+   2、设计数据库访问公共类
+
+      1、定义增删查改四个访问，对数据库的表中数据进行CURD操作；
+
+      2、可以访问任何表；
+
+      3、查询方法返回存放持久化对象的集合，接受的参数是持久类的类型，查询所有数据即可；
+
+            一个表对应一个持久类，表的列就是类属性。
+
+      4、添加、修改方法，接受的参数是持久化对象；
+
+      5、删除方法，接受的参数是要删除用户的ID，持久化类的类型；
+
+            支持批量删除。
+
+      6、[可选] 支持两张表连接查询
+
+      
+      提示：使用反射机制。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

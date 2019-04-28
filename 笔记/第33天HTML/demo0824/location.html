@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器对象：location</title>
+		<script>
+			document.write(location);
+			document.write("<br>");
+			document.write(location.href);
+			document.write("<br>");
+			document.write(location.protocol);
+			document.write("<br>");
+			document.write(location.host);
+			document.write("<br>");
+			document.write(location.hostname);
+			document.write("<br>");
+			document.write(location.port);
+			document.write("<br>");
+		</script>
+	</head>
+	<body>
+		<p><input type="button" value="location"
+			 onclick="location='lotterygame.html'" /></p>
+		<p><input type="button" value="location.href"
+			 onclick="location.href='lotterygame.html'" /></p>
+	    <p><input type="button" value="reload()"
+			 onclick="location.reload()" /></p>
+		<p><input type="button" value="assign()"
+			 onclick="location.assign('lotterygame.html')" /></p>
+		<p><input type="button" value="replace()"
+			 onclick="location.replace('lotterygame.html')" /></p>	
+	    <p><input type="text" /></p>
+	</body>
+</html>

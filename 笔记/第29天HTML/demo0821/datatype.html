@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型及之间的转换</title>
+	</head>
+	<body>
+		<script>
+			var num = 10.25;
+			var str1 = '10abc';
+			var str2 = "10.38ABC";
+			var bool = true;
+			//转换成数值型
+			document.write(Number(num));
+			document.write("<br/>");
+			document.write(Number(str1));
+			document.write("<br/>");
+			document.write(Number(str2));
+			document.write("<br/>");
+			document.write(Number(bool));
+			document.write("<br/>");
+			document.write("<hr/>");
+			//提取整型数值
+			document.write(parseInt(num));
+			document.write("<br/>");
+			document.write(parseInt(str1));
+			document.write("<br/>");
+			document.write(parseInt(str2));
+			document.write("<br/>");
+			document.write(parseInt(bool));
+			document.write("<br/>");
+			document.write("<hr/>");
+			//提取包括小数位的数值
+			document.write(parseFloat(num));
+			document.write("<br/>");
+			document.write(parseFloat(str1));
+			document.write("<br/>");
+			document.write(parseFloat(str2));
+			document.write("<br/>");
+			document.write(parseFloat(bool));
+			document.write("<br/>");
+			document.write("<hr/>");
+			//转换成字符串
+			document.write(String(num));
+			document.write("<br/>");
+			document.write(String(bool));
+			document.write("<br/>");
+			document.write(typeof(bool+""));
+			document.write("<br/>");
+			document.write(new String(bool));
+			document.write("<hr/>");
+			//转换成布尔型
+			document.write(Boolean(num));
+			document.write("<br/>");
+			document.write(Boolean(str1));
+			document.write("<br/>");
+			document.write(Boolean(str2));
+			document.write("<br/>");
+			document.write(Boolean(bool));
+			document.write("<br/>");
+			document.write(Boolean(0));
+			document.write("<br/>");
+			document.write(Boolean(false));
+			document.write("<br/>");
+			document.write(Boolean(null));
+			document.write("<br/>");
+			document.write(Boolean(undefined));
+			document.write("<br/>");
+			document.write(Boolean(NaN));
+			document.write("<br/>");
+			document.write(Boolean(""));
+			document.write("<br/>");
+		</script>
+	</body>
+</html>

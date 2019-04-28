@@ -1,0 +1,643 @@
+HTML教程：
+
+    http://www.w3school.com.cn/html/index.asp
+
+
+一、HTML(Hyper Text Markup Language)
+
+    超文本标记语言，标准通用标记语言下的一个应用。
+
+   “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。
+
+    超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body）
+
+         其中“头”部提供关于网页的信息;
+
+        “主体”部分提供网页的具体内容。
+
+    1、HTML是一门解释性语言。
+
+       HTML不需要编译，由浏览器解释执行。
+
+
+    2、标记的分类：
+
+       1）单标记
+
+          <标签名称 属性="值" ...... />
+
+       2）双标记
+
+          <标签名称 属性="值" ...... >标签体</标签名称>
+
+
+    3、文档流
+
+
+
+二、HTML文档的结构
+
+    1、头部部分
+
+       <head>
+
+           <meta/>  <!-- 页面元数据，比如：编码格式、搜索的关键字、页面缓存..... -->
+
+           <title></title>  <!-- 标题 -->
+
+           <base/>  定义了页面链接标签的默认链接地址
+
+           <link/>  定义了一个文档和外部资源之间的关系，引入外部文件
+
+           <style></style>  定义了HTML文档的样式
+
+           <script></script>  定义了客户端的脚本
+
+       </head>
+
+
+
+    2、主体部分
+
+       https://baike.baidu.com/item/HTML/97049?fr=aladdin
+
+       <body>
+ 
+           <h1..6></h1..6> 最大的标题（一号标题）
+
+           <pre></pre> 预先格式化文本 （英文全称：PREformatted）
+      
+           <font size="" color=""></font> 设置字体大小从1到7，颜色使用名字或RGB（中文全称：红绿蓝）的十六进制值
+
+           <p></p> 创建一个段落 （英文全称：Paragraphs）
+
+                <p align=""> 将段落按左、中、右对齐
+
+           <br/>定义新行
+
+           <blockquote></blockquote> 从两边缩进文本
+
+           <center></center> 水平居中
+
+
+           <dl></dl> 定义列表（英文全称：Definition List）
+
+               <dt> 放在每个定义术语词前（定义术语、英文全称：Definition Term   定义项）
+
+               <dd> 放在每个定义之前（定义说明、英文全称：Definition Description 定义描述）
+
+           <ol></ol> 创建一个标有序的列表，默认前面有数字，从数字“1”开始计数，依次叠加，也可以设置为字母或从任何自
+                     然数开始计数的列表项 （有序列表、外语全称：Ordered List）
+
+           <ul></ul> 创建一个无序的列表，默认前面标有圆点，也可以自己设置为none或者其他形状，如空心圆、方块等。
+                    （无序列表、外语全称：Unordered List）
+
+                <li> 放在每个列表项之前，若在<ol></ol>；之间则每个列表项加上一个数字，
+                     若在<ul></ul>；之间则每个列表项加上一个圆点
+
+
+           <img src="" width="" height="" title="" alt=""/>  图像
+
+                常用图像格式：
+
+                    bmp       不采用任何压缩         
+
+                    jpg       有损压缩               不透明
+
+                    gif       无损压缩               透明
+
+                    png       无损压缩               透明
+              
+
+           <a href=""></a>  超连接
+
+           <map> <!--热点区域（简称：热点、热区）：将图像划分为多个区域，连接到不同网页-->
+              
+               <area/> <!--划分可点击区域，分为三种图像：圆形、矩形、多边形-->
+            
+           </map> 
+
+           <table> <!--表格-->
+
+              <thead> <!--表格头部-->
+
+              </thead>
+
+              <tbody> <!--表格主体-->
+
+                 <tr>
+                    <th></th>
+                    ......
+                 </tr>
+
+                 <tr>
+                    <td></td>
+                    ......
+                 </tr>
+              <tbody>
+
+              <tfoot> <!--表格底部-->
+
+              </tfoot>
+
+           <table>
+
+           <div align=""></div> 用来排版大块HTML段落，也用于格式化表，常用于布局 
+
+                可定义文档中的分区或节，标签可以把文档分割为独立的、不同的部分；
+
+                就是从网页中划分出来的区域，默认情况下，一个div，占一行。
+                 
+                div是一个级块元素。
+
+           <form method="get|post" action="url" enctype=""> <!--表单标签-->
+
+                <!--表单中的控件-->
+
+                <input type="" /> <!--输入控件-->
+
+                    type属性值不同，输入框格式不同：
+
+                        text         文本框（默认的）
+
+                        password     密码框
+
+                        radio        单选按钮
+
+                        checkbox     复选框
+
+                        submit       提交按钮
+
+                        reset        重置按钮
+
+                        button       普通按钮
+
+                        hidden       隐藏文本框
+
+
+                        html5：
+
+                           date      日历控件
+
+                           email     邮箱输入框，验证输入是否合法
+
+                           number    数字文本框，只能输入数字
+                        
+
+                <select> <!--下拉菜单-->
+
+                     <option></option> <!--菜单选项-->
+
+                </select> 
+
+                <textarea><textarea> <!--文本区域-->
+
+           </form>
+
+                form表单用于向服务器条件数据。
+
+                method规定如何发送表单数据,即表达提交数据的模式。
+
+                     get:
+
+                        安全性：数据在请求的路径中，地址栏上显示，不安全；
+ 
+                        数据大小限制：提交数据根据浏览器的不同1..8KB。
+
+                     post:
+
+                        安全性：数据在请求体中，地址栏上不显示，安全性较高。
+
+                        数据大小限制：无限制。
+
+                扩展：浏览器向服务器提交数据的两种方式：表单、超连接。
+
+           
+           <frameset> <!-- 框架集   已过时-->
+               
+                <frame/> <!-- 框架，用于划分浏览器窗口 -->
+
+           </frameset>
+
+           <iframe></iframe> <!-- 内联框架 -->
+
+
+           HTML5的标签：
+
+              <video></video> <!-- 视频 --> 
+
+                   <video> 元素支持三种视频格式：MP4、WebM、Ogg。
+
+                   http://www.runoob.com/tags/tag-video.html
+
+              <audio></audio> <!-- 音频 -->
+
+                   <audio>元素支持三种音频格式文件: MP3, Wav, 和 Ogg。
+
+                   http://www.runoob.com/html/html5-audio.html
+
+
+              <input /> 新增属性：
+
+                   required	required	指示输入字段的值是必需的。
+
+                   placeholder	text	        规定帮助用户填写输入字段的提示。
+
+                   pattern	regexp_pattern	规定输入字段的值的模式或格式。
+
+                   http://www.w3school.com.cn/tags/tag_input.asp
+
+       </body>
+
+
+三、HTML文档流
+
+    什么叫文档流？
+
+        简单来说，就是元素在页面出现的先后顺序。
+
+        一般情况下，HTML按照标签的书写顺序。
+
+
+    那什么叫“正常文档流”呢？
+
+       正常文档流，将页面自上而下分成一行一行。
+
+           块元素独占一行；
+
+           相邻的行内元素在每行中按从左到右地依次排列元素。
+
+
+四、HTML元素的分类：
+
+    http://www.gezila.com/tutorials/52292.html
+
+    1）级块元素
+
+       在网页单独占一行。
+
+       边界、填充样式，水平和垂直方向均有效。
+
+
+    2）行内元素
+
+       多个元素可以在同一行中出现。
+
+       一行中可以存在多个行内元素，从左向右依次排列。
+
+       边界、填充样式，水平方向有效，垂直方向无效。
+
+
+    3）可变元素
+
+       可以是级块元素，也可以是行内元素。
+
+       同一行中可以多个元素，边界、填充水平和垂直方向均有效。
+
+
+    行内转换级块元素：
+
+       display: block;
+
+
+    级块元素转换成行内元素：
+
+       display: inline;
+
+
+    转换可变元素：
+
+       display: inline-block;
+
+       float: left|right;
+
+
+
+五、CSS (Cascading Style Sheets) 层叠样式表
+
+    http://www.w3school.com.cn/css/css_syntax.asp
+
+    CSS是一种用来表现HTML文档样式的计算机语言，使网页展示出效果更丰富、更美观。
+
+    CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+
+    1、CSS样式的作用：
+
+       1）提供更丰富的样式定义；
+
+       2）实现内容（元素）与表现（样式）的分离；样式可以在元素外部定义，元素应用这个样式；
+
+       3）一处定义多处使用，提高开发效率，比如：
+
+              一个样式，多个元素引用；
+
+              一个外部样式表，多个页面应用。
+
+       4）有利于团队分工合作。
+
+    2、样式表的分类：
+
+       1）外部样式表
+
+          外部的样式文件“***.css”中定义的样式。
+
+       2）内部样式表（也称为文档样式表）
+
+          HTML文档头部<head>标签中的<style>标签中定义的样式。
+
+       3）内联样式表（也称为行内样式表）
+
+          元素的style属性的值中定义的样式。
+
+
+        优先级：!important > 内联样式表 > 外部样式表|内部样式表。
+
+    3、语法格式：
+
+       CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。
+
+       每条声明由一个属性和一个值组成。
+
+       选择器 {
+
+           属性1: 值1;
+
+           属性2: 值2;
+
+           ......
+
+       }
+
+
+六、CSS选择器
+
+    要使用css对HTML页面中的元素实现一对一，一对多或者多对一的控制，这就需要用到CSS选择器。
+
+    HTML页面中的元素就是通过CSS选择器进行控制的。
+
+    每一条css样式定义由两部分组成，形式如下： [code] 选择器{样式} [/code] 在{}之前的部分就是“选择器”。
+   “选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。
+
+
+    1、ID选择器
+
+    2、类选择器
+
+    3、伪类选择器
+
+       http://www.w3school.com.cn/cssref/css_selectors.asp
+
+       :not()
+
+    4、标签选择器
+
+    5、复合选择器（又称为后代选择器）
+
+    6、群组选择器
+
+    7、兄弟选择器
+
+    8、属性选择器
+
+    9、通用选择器
+    
+    
+    层叠：
+
+        多个选择器作用于一个元素：
+ 
+            未重名的属性，直接作用于元素；
+
+            重名的属性，若存在优先级，优先级高的属性作用于元素；若优先级相同，按照书写顺序，最后的属性作用于元素。
+
+        多个重名选择器：
+
+            未重名的属性，均作用于元素；
+
+            重名的属性，按照书写顺序，最后的属性作用于元素。注意：不考虑!important最高优先级。
+
+
+    选择器优先级：
+
+        选择器的权值：
+
+            标签选择器         0 0 0 1
+
+            伪类选择器         0 0 1 0
+
+            类选择器           0 0 1 0
+
+            ID选择器           0 1 0 0
+
+            !important         1 0 0 0
+
+            优先级从低至高。
+
+
+
+七、样式属性分类，分为八大类样式：
+
+    1、字体样式
+
+       font-family
+
+       font-size
+
+       font-style 
+
+       font-variant
+
+       font-weight
+
+       color
+
+    2、文本样式
+
+       http://www.w3school.com.cn/css/css_text.asp
+
+       text-indent
+
+       text-align
+
+       word-spacing
+
+       letter-spacing
+
+       text-transform
+
+       text-decoration 
+
+       white-space
+
+ 
+       word-wrap
+
+       word-break
+
+
+    3、背景样式
+
+       background-color
+
+       background-image
+
+       background-repeat
+
+       background-attachment
+
+       background-position 
+
+
+    4、方框样式
+
+       width 
+
+       height
+
+       max-width
+
+       max-height
+
+       min-width
+
+       min-height
+
+       float
+
+       clear
+
+       padding
+
+       margin
+
+
+    5、边框样式
+
+       border
+
+       border-style
+
+       border-width
+
+       border-color
+
+
+    6、列表样式
+
+       list-style-image
+
+       list-style-position
+
+       list-style-type 
+
+
+    7、定位样式
+
+
+    8、扩展样式
+
+
+
+    CSS单位：
+
+       http://www.w3school.com.cn/cssref/css_units.asp
+   
+
+
+练习：
+
+   1、使用表格实现图像与文本组合的列表。
+
+      参照：http://www.udata.cn/News.aspx?CategoryID=159
+
+      
+
+
+作业：
+
+
+   1、使用段落、图像、字体、标题等标签，完成下列网址中网页的设计。
+
+      http://www.udata.cn/NewsDetail.aspx?ID=244&CategoryID=159
+
+      提示：
+
+           空格    &nbsp;
+
+           http://www.w3school.com.cn/html/html_entities.asp
+
+
+   2、使用反射机制、JDBC、持久化类实现面向对象访问数据库。
+
+
+   3、设计页面，制作友情连接
+
+      图像上存在多个连接，连接到不同网页，至少做3个。
+
+   4、设计注册界面
+
+      要求：界面较美观。
+
+
+   5、使用CSS样式设计斑马线表格。
+
+      要求：界面更美观。
+
+   6、使用框架与视频，设计简单静态的视频播放网址。
+
+      [可选] iframe内联框架
+
+   7、完成下列网址的网页中的导航菜单
+
+      https://www.chinapp.com/shechipinpai
+
+      [可选]任选一个商品类型网页，参照设计出网页。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

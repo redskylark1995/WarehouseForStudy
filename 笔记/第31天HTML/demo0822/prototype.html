@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原型链</title>
+		<script>
+			function Person(name) {
+				this.name = name;
+				
+				this.getName = function() {
+					return this.name;
+				}
+			}
+			
+			//遍历函数对象的属性
+			Person.age = 18;
+			for(i in Person) {
+				document.write(i);
+				document.write("<br>");
+			}
+			document.write("<hr>");
+			
+			//遍历函数原型对象的属性
+			var proto = Person.prototype;
+			proto.gender = "男";
+			for(i in proto) {
+				document.write(i);
+				document.write("<br>");
+			}
+			document.write("<hr>");
+			
+			//遍历创建出对象的属性
+			var p = new Person("张三");
+			for(i in p) {
+				document.write(i);
+				document.write("<br>");
+			}
+			document.write("<hr>");
+			
+			//输出对象的属性
+			document.write(p.getName()+","+p.gender+","+p.age);
+			document.write("<br>");
+			document.write(p.getName()+","+p.gender+","
+			           +p.__proto__.constructor.age);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

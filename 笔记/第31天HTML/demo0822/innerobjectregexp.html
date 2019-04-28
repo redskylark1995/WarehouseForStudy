@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式对象</title>
+		<script>
+			//创建正则表达式
+			var regexp1 = /^\d+$/;
+			var regexp2 = new RegExp("^\\d+$");
+			var str = "110120119a";
+			console.log(regexp1.test(str));
+			console.log(regexp2.test(str));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

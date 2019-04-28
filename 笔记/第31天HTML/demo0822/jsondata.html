@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JSON字符串与JSON对象之间的转换</title>
+		<script>
+			/*//定义JSON格式的字符串
+			var jsonString = '{"name":"王武","gender":"男","age":28}';
+			//转换成JSON对象
+			var json = JSON.parse(jsonString);*/
+			var jsonString = '{name:"王武",gender:"男",age:28}';
+			var json = eval('('+jsonString+')');
+			document.write(json.name+","+json.gender+","+json.age);
+			document.write("<br>");
+			document.write("<hr>");
+			var jsonStr = JSON.stringify(json);
+			document.write(typeof(jsonStr));
+			document.write("<br>");
+			document.write(jsonStr.length);
+			document.write("<br>");
+			document.write(jsonStr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

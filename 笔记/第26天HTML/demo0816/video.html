@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>视频播放</title>
+	</head>
+
+	<body>
+		<center>
+			<h2>萌萌的丑兔子</h2>
+			<hr />
+			<!-- HTML5 -->
+			<!--<video src="video/mov_bbb.mp4" width="800" height="500" autoplay controls loop></video>-->
+			<!--http://www.w3school.com.cn/html5/html_5_video.asp-->
+			<!--<video width="800" height="500" autoplay controls loop>
+				<source src="video/mov_bbb.mp4" type="video/mp4" />
+			</video>-->
+			
+			<!-- HTML4 -->
+			<!--<object data="video/movie.mp4" width="800" height="500">
+                <embed src="video/movie.swf" width="800" height="500" />
+            </object>-->
+            
+            <!-- 解决视频不同浏览器及版本兼容性问题 -->
+            <video width="800" height="500" autoplay controls loop>
+				<source src="video/mov_bbb.mp4" type="video/mp4" /> <!-- 支持video标签时 -->
+				<object data="video/movie.mp4" width="800" height="500"> <!-- 不支持video标签时 -->
+                    <embed src="video/movie.swf" width="800" height="500" /> <!-- 不支持Object标签时 -->
+                </object>
+		    </video>
+		</center>
+	</body>
+
+</html>
